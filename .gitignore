@@ -1,0 +1,39 @@
+# environment files
+.env
+
+# Documentation
+*.pdf
+
+# Figures
+*.png
+*.svg
+*.jpg
+
+# Raw data
+*.dta
+*.csv
+*.xlsx
+*.xls
+*.sav
+
+# Mac files
+.DS_Store
+
+# Tables 
+*.tex
+
+# Jupyter notebooks
+.ipynb_checkpoints
+*.ipynb
+*checkpoint.ipynb
+*checkpoint.py
+
+# Python
+__pycache__/
+*.pyc
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
