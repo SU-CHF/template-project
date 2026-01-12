@@ -1,0 +1,75 @@
+---
+title: "Title of the Paper"
+author: 
+- "Author Name1"
+- "Author Name2"
+date: last-modified
+date-format: "MMMM YYYY"
+abstract: |
+  This is the abstract of the paper. It will be formatted automatically according to the style file defined in `paper.sty`, with no indentation and specific spacing.
+format: 
+  pdf:
+    documentclass: article
+    pdf-engine: pdflatex
+    # Load the adapted style file
+    include-in-header: 
+      - text: |
+          \usepackage{paper}
+    # Map geometry settings from the original style
+    geometry:
+      - top=1in
+      - bottom=1.2in
+      - left=1.3in
+      - right=1.3in
+      - footskip=0.7in
+    # Map hyperref settings from the original style
+    hyperrefoptions:
+      - hidelinks
+      - hypertexnames=false
+      - pdfpagemode=UseNone
+      - pdfdisplaydoctitle=true
+    # Ensure natbib is used for citations
+    cite-method: natbib
+bibliography: references.bib
+---
+
+# Introduction
+
+This is a Quarto template using the custom `paper.sty`. The fonts used are Source Serif Pro for text and Source Code Pro for code.
+
+## Math
+
+The math fonts are set to use `MnSymbol` and `mathastext`.
+
+$$
+f(x) = \int_{0}^{\infty} e^{-x^2} dx
+$$
+
+## Theorems
+
+The theorem environments are defined in the style file.
+
+\begin{theorem}
+This is a theorem styled with small caps heading and italic body.
+\end{theorem}
+
+\begin{proof}
+This is the proof environment.
+\end{proof}
+
+# Results
+
+You can use standard Quarto markdown for tables and figures, and the style file will center them and format captions automatically.
+
+| Column 1 | Column 2 |
+|----------|----------|
+| A        | 10       |
+| B        | 20       |
+
+: Sample Table
+
+# Conclusion
+
+The appendix logic is handled automatically after the bibliography.
+
+\newpage
