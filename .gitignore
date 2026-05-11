@@ -3,6 +3,8 @@
 
 # Documentation
 *.pdf
+*.docx
+*.doc
 
 # Figures
 *.png
@@ -19,9 +21,6 @@
 # Mac files
 .DS_Store
 
-# Tables 
-*.tex
-
 # Jupyter notebooks
 .ipynb_checkpoints
 *.ipynb
@@ -37,3 +36,15 @@ __pycache__/
 .Rhistory
 .RData
 .Ruserdata
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.bbl
+*.blg
+
