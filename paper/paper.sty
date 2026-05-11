@@ -1,8 +1,10 @@
 % ---- Select text fonts ----
 
 % Make PDF searchable and copyable
-\input{glyphtounicode}
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode}}{}
+\ifdefined\pdfgentounicode
 \pdfgentounicode=1
+\fi
 
 % Select font encoding 
 \usepackage[T1]{fontenc}
@@ -17,6 +19,9 @@
 \usepackage[hyphens]{url}
 
 % ---- Select math fonts ----
+
+% Enhance math environments
+\usepackage{amsmath}
 
 % Select symbol font
 \usepackage{MnSymbol}
@@ -92,7 +97,7 @@
 \usepackage{xparse}
 
 % Place URL and publication information at foot of title page
-\NewDocumentCommand{\available}{o g}{%
+\NewDocumentCommand{\available}{o m}{%
 \fancypagestyle{plain}{\fancyfoot[C]{\color{gray}\footnotesize%
 \IfValueT{#1}{Published in \emph{#1}\;\textbullet\;}%
 Available at \url{#2}}}}
@@ -180,6 +185,7 @@ Available at \url{#2}}}}
 \renewcommand{\arraystretch}{1.1}
 
 % Set font size in tables
+\BeforeBeginEnvironment{tabular}{\footnotesize}
 \BeforeBeginEnvironment{tabular*}{\footnotesize}
 
 % Write "table" and "figure" in small caps 
@@ -193,16 +199,16 @@ Available at \url{#2}}}}
 \captionsetup{labelsep=period}
 
 % Place table captions above table
-\captionsetup[table]{position=top}
+\captionsetup*[table]{position=top}
 
 % Format subcaptions
-\captionsetup[sub]{labelformat=simple,labelsep=period,size=small}
+\captionsetup*[sub]{labelformat=simple,labelsep=period,size=small}
 
 % Write figure sublabels in Roman caps
 \renewcommand{\thesubfigure}{\Alph{subfigure}}
 
 % Create note for tables and figures
-\NewDocumentCommand{\note}{o g}{%
+\NewDocumentCommand{\note}{o m}{%
 \parbox{\textwidth}{\footnotesize\vspace*{10pt}%
 \IfValueT{#1}{\textit{#1}:\quad}%
 #2}}
@@ -278,4 +284,5 @@ Available at \url{#2}}}}
 
 % ---- Enable hyperlinks  ----
 
-\usepackage[pdftex,hidelinks,hypertexnames=false,pdfpagemode=UseNone,pdfdisplaydoctitle=true]{hyperref}
+\usepackage[hidelinks,hypertexnames=false,pdfpagemode=UseNone,pdfdisplaydoctitle=true,breaklinks=true]{hyperref}
+\usepackage{bookmark}
